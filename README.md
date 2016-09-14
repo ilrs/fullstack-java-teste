@@ -1,8 +1,8 @@
 # NinjaProject Contabilizei
 
 Passo a passo para execução:
-- Configurar o arquivo META-INF/persistence.xml com o usuário, a senha e a url de acesso ao banco de dados (MySql);
-- Configurar um servidor para rodar a aplicação, de preferência Tomcat ( versão 7 ou superior);
+- Configurar o arquivo META-INF/persistence.xml a url de acesso ao banco de dados (HsqlDb);
+- Configurar um servidor para rodar a aplicação, Jetty ou Tomcat;
 - Adicionar ao Java Build Path os .jar localizados na pasta WebContent/WEB-INF/lib;
 - Iniciar o servidor com a aplicação;
 

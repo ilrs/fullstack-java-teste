@@ -40,4 +40,4 @@
 	</div>
 </form>
 
-<a href="${pageContext.request.contextPath}/clients/">Back</a>
+<a href="${pageContext.request.contextPath}/clients">Back</a>

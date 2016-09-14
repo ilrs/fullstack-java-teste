@@ -33,17 +33,21 @@ public class Clients extends HttpServlet {
 
 		if (request.getMethod().toLowerCase().equals("post")) {
 			Client client = (Client) request.getAttribute("client");
-			if (request.getAttribute("_method").equals("delete")) {
-				deleteClient(client);
-			} else if ((boolean) request.getAttribute("edit")) {
-				updateClient(client);
-			} else {
-				storeClient(client);
+			if (client != null) {
+				if (request.getAttribute("_method") != null) {
+					deleteClient(client);
+				} else if (request.getAttribute("edit") != null) {
+					updateClient(client);
+				} else {
+					storeClient(client);
+				}
 			}
-		} else if (request.getPathTranslated().endsWith("new")) {
-			newClient(request, response);
-		} else if (request.getPathTranslated().endsWith("edit")) {
-			editClient(request, response);
+		} else if (request.getPathTranslated() != null) {
+			if (request.getPathTranslated().endsWith("new")) {
+				newClient(request, response);
+			} else if (request.getPathTranslated().endsWith("edit")) {
+				editClient(request, response);
+			}
 		} else {
 			showClients(request, response);
 		}
@@ -79,7 +83,6 @@ public class Clients extends HttpServlet {
 
 		Client client = new Client();
 		request.setAttribute("client", client);
-		request.setAttribute("edit", false);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/client/newClient.jsp");
 		rd.forward(request, response);
